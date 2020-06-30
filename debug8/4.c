@@ -4,8 +4,8 @@
 int main() {
     int n;
     scanf("%d", &n);
-    char name[MAX][100];
-    char temp[100];
+    char name[MAX][101];
+    char temp[101];
 
     for (int i = 0; i < n + 1; ) {
         gets(name[i]);
