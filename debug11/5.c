@@ -3,7 +3,7 @@
 #include <string.h>
 
 int main() {
-    char arr[32];
+    int arr[32];
     char str[32];
     int bits[32];
     char result[32];
@@ -21,7 +21,7 @@ int main() {
             break;
         }
         j++;
-        arr[j % 32] += input;
+        arr[j % 32] += (int)input;
     }
 
 
