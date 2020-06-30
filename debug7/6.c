@@ -10,7 +10,9 @@ operator = -
         printf("YES");
     } else if (month == 2 && day == 29 && ((year % 100 != 0 && year % 4 == 0) || year % 400 == 0)) {
         printf("YES");
-    } else {
+    }else if(month == 2 &&(day>=1 && day <=28)){
+        printf("YES");
+    }else {
         printf("NO");
     }
 	return 0;	     
