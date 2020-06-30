@@ -1,45 +1,40 @@
 #include <stdio.h>
 int main() {
-    char n;
+    char n[4];
     int a[3] = { 0,0,0 };
+        scanf("%s", n);
     for (int i = 0; i < 3; i++) {
-        scanf("%c", &n);
-        if (n == 'r') {
+        if (n[i] == 'r') {
             a[0] = 1;
         }
-        if (n == 'w') {
+        if (n[i] == 'w') {
             a[1] = 1;
         }
-        if (n == 'x') {
+        if (n[i] == 'x') {
             a[2] = 1;
         }
 
     }
-    while (scanf("%c", &n) != EOF) {
-        if (n == '\n') {
-            continue;
-        }
-        if (n == '+') {
-            scanf("%c", &n);
-            if (n == 'r') {
+    while (scanf("%s", n) != EOF) {
+        if (n[0] == '+') {
+            if (n[1] == 'r') {
                 a[0] = 1;
             }
-            if (n == 'w') {
+            if (n[1] == 'w') {
                 a[1] = 1;
             }
-            if (n == 'x') {
+            if (n[1] == 'x') {
                 a[2] = 1;
             }
         }
-        if (n == '-') {
-            scanf("%c", &n);
-            if (n == 'r') {
+        if (n[0] == '-') {
+            if (n[1] == 'r') {
                 a[0] = 0;
             }
-            if (n == 'w') {
+            if (n[1] == 'w') {
                 a[1] = 0;
             }
-            if (n == 'x') {
+            if (n[1] == 'x') {
                 a[2] = 0;
             }
         }
