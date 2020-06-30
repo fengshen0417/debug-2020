@@ -7,16 +7,11 @@ int main() {
     int bits[32];
     char str[maxn], rstr[maxn];
     i = 0;
-    while (scanf("%c", &str[i]) != EOF) {
-        if (str[i] == '\n') {
-            str[i] = '\0';
-            break;
-        }
-        i++;
-    }
-    k = strlen(str);
-    for (i = 1; i <= k; i++) {
-        arr[i % 32] += str[i - 1];
+    scanf("%s", &str);
+    for (i = 1; i <= strlen(str); i++)
+    {
+        if (str[i] == '\n') break;
+        arr[i % 32] += (int)str[i - 1];
     }
     for (j = 0; j < 32; j++) {
         bits[j] = arr[31 - j] ^ (arr[j] << 1);
