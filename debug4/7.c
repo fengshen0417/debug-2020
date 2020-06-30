@@ -8,12 +8,12 @@ int main()
     int i;
     int max;
     int inter;
-    // 读入给定的数字
+    // 露脕脠毛赂酶露篓碌脛脢媒脳脰
     for (i = 0; i < n; i++) {
         scanf_s("%d", &numbers[i]);
     }
-    for (i = 0; i <= 9; i++) {
-        for (m = 0; m <= 9; m++) {
+    for (i = 0; i < 9; i++) {
+        for (m = 0; m < 9; m++) {
             if (numbers[m] < numbers[m + 1]) {
                 max = numbers[m];
                 numbers[m] = numbers[m + 1];
