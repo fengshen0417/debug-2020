@@ -1,26 +1,38 @@
+
 #include <stdio.h>
+#include <string.h>
+
 int main() {
-    int i, j, n;
-    scanf("%d", &n);
-    if (n == 2)
-    {
-        printf("2\n");
+    int arr[32];
+    char str[32];
+    int bits[32];
+    char result[32];
+    char input;
+    int j = 0;
+
+    for (int i = 0; i < 32; i++) {
+        arr[i] = 0;
     }
-    else if (n == 1) {
-        return 0;
-    }
-    else if (n > 2) {
-        printf("2\n");
-        for (i = 3; i <= n; i++)
-        {
-            for (j = 2; j < i; j++) {
-                if (i % j == 0)
-                    break;
-                }
-            if (j == i) {
-                printf("%d\n", i);
-            }
+
+    while (scanf("%c", &input) != EOF) {
+        char str[2] = "\0";
+        str[0] = input;
+        if (strcmp(str, "\n") == 0) {
+            break;
         }
+        j++;
+        arr[j % 32] += (int)input;
+    }
+
+
+    for (int i = 0; i < 32; i++) {
+        bits[i] = (arr[31 - i]) ^ (arr[i] << 1);
+        int b = (bits[i] % 85) + 34;
+        result[i] = (char)b;
+    }
+
+    for (int i = 0; i < 32; i++) {
+        printf("%c", result[i]);
     }
     return 0;
 }
