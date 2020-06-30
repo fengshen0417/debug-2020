@@ -14,7 +14,7 @@ int main() {
         }
     }
     for (i = 0; i < 10; i++) {
-        for (j = 0; j <= 9 - i; j++) {
+        for (j = 0; j < 9 - i; j++) {
             if (strcmp(string[j], string[j + 1]) > 0) {
                 strcpy(str, string[j + 1]);
                 strcpy(string[j + 1], string[j]);
