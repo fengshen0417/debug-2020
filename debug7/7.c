@@ -1,55 +1,24 @@
-#include<stdio.h>
+#include <stdio.h>
 int main()
 {
-    int y, m, d;
-    scanf("%d-%d-%d", &y, &m, &d);
-    if(m < 1||m > 12)  printf("NO");
-    else if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12)
-    {
-        if (d <= 31)
-        {
-            printf("YES");
-        }
-        else
-        {
-            printf("NO");
-        }
+    int Year, Month, Date;
+    int Leapyear, Datevalid, Februaryvalid, Month30valid, Month31valid;
+    scanf("%d-%d-%d", &Year, &Month, &Date);
+
+    Leapyear = (((Year % 100 != 0 && Year % 4 == 0) || Year % 400 == 0) == 1 ? 1 : 0);  //1代表闰年，2月有29日
+    Februaryvalid = (Leapyear == 0 && Month == 2 && Date < 29) || (Leapyear == 1 && Month == 2 && Date < 30);
+    Month30valid = (Month == 4 || Month == 6 || Month == 9 || Month == 11) && (Date < 31);
+    Month31valid = (Month == 1 || Month == 3 || Month == 5 || Month == 7 || Month == 8 || Month == 10 || Month == 12) && (Date < 32);
+    Datevalid = (Februaryvalid || Month30valid || Month31valid);
+    //printf("%d\n%d\n%d\n", Month31valid, Februaryvalid, Month30valid);//调试用
+    if (Month > 12 || Month < 1) {
+        printf("NO");
     }
-    else if (m != 2)
-    {
-        if (d <= 30)
-        {
-            printf("YES");
-        }
-        else
-        {
-            printf("NO");
-        }
+    else if (Datevalid == 1) {
+        printf("YES");
     }
-    else if(m == 2)
-    {
-        if (y % 100 != 0 && y % 4 == 0 || y % 400 == 0)
-        {
-            if (d <= 29)
-            {
-                printf("YES");
-            }
-            else
-            {
-                printf("NO");
-            }
-        }
-        else
-        {
-            if (d <= 28)
-            {
-                printf("YES");
-            }
-            else
-            {
-                printf("NO");
-            }
-        }
+    else {
+        printf("NO");
     }
     return 0;
 }
