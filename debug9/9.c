@@ -19,7 +19,7 @@ int main() {
         a[i]=a[i-2]+a[i-3];
         
     }
-        printf("%d",a[i]);
+        printf("%d",a[n]);
     }
     return 0;
 }
