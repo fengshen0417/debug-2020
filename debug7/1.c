@@ -21,13 +21,13 @@ int main() {
         }
         else if (mouth == 2) {
             if (year % 4 == 0) {
-                if (year % 100 == 0 && year % 400 != 0) {
-                    if (day <= 28 && day >= 1) {
+                if ((year % 100 == 0 && year % 400 != 0) || (year % 4 == 0 && year % 100 != 0)) {
+                    if (day <= 29 && day >= 1) {
                         printf("YES");
                     }
                     else { printf("NO"); }
                 }
-                else { printf("YES"); }
+            }
             }
             else {
                 if (day <= 28 && day >= 1) {
